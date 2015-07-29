@@ -1,0 +1,40 @@
+@charset "utf-8";
+
+html, body, div{ margin: 0; padding: 0; }
+ul, li{list-style:none; padding: 0px; margin:0px;}
+body{width:100%; text-align:center;}
+#map-canvas {height:200px; box-shadow: 0 4px 10px rgba(100,100, 100, 0.4);}
+
+.resultList{width:80%; background: #6799EC; border: 1px solid #3367D6; margin:0px auto; text-align:left; margin-top:30px; margin-bottom:30px;
+  box-shadow: 0 0 5px rgba(51, 103, 214, 0.6);
+}
+
+.resultList li{line-height:200%; color:#C9D8F1;  padding: 2px 20px; font-weight: 600;}
+.resultList .same{color:#fff; display: inline-block; margin:0 2px; }
+.resultList li:hover{background:#8CB0EC; border: 1px solid #538BE8; }
+/*
+.resultList{width:80%; background: #FFF4C1; border: 1px solid #FFDE47; margin:0px auto; text-align:left; margin-top:30px; margin-bottom:30px;
+  box-shadow: 0 0 5px rgba(255, 222, 71, 0.9);
+}
+.resultList li{line-height:200%; color:#FA8E00; padding: 2px 20px;}
+.resultList .not-same{color:#EF6C00; display: inline-block; margin:0 2px; font-weight: 600;}
+*/
+
+#form{
+  width:60%; margin:0px auto; text-align:left; background: #F7F7F7; margin-top:10px; margin-bottom:10px; padding:10px 0px;
+  box-shadow: 2px 2px 5px rgba(110,110,110, 0.6)
+}
+.form li{line-height:200%; padding:8px 20px; }
+.form li:hover{background: #f0f0f0;}
+.form span{display:inline-block; width:120px; text-align:right; margin-right:10px; color: #777;}
+input[type='text']{
+  border:none; outline: none; padding: 8px 10px; color:#555; border: 1px solid #ccc;
+}
+input[type='text']:hover, input[type='text']:focus{
+  border:1px solid #6799EC; box-shadow: 0px 0px 4px rgba(103,153,236,0.8), 0 5px 5px rgba(110,110, 110, 0.2) inset; 
+}
+
+.form p{text-align:center;}
+#searchSubmtBtn{background:#6EDA44; color: #fff; padding: 8px 30px; display: inline-block; text-decoration: none;}
+#searchSubmtBtn:hover{background: #8DDA6F; box-shadow:0px 0px 4px rgba(103, 68, 85,0.2); }
+
