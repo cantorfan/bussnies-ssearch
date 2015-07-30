@@ -63,7 +63,72 @@ $("#searchSubmtBtn").click(function(){
 			
 	$.get("request.jsp", {"name": name, "address": address, "number": number, "_":new Date().getTime()}, 
 		function(data){
-			var datas = data.split(",");
+			
+		var result = $.parseJSON(data)
+		$("#items").hide().html("");
+		if(result.status){
+			
+			var cname =  result.name;
+			var caddress = result.address;
+			var cphone = result.phone;
+
+			var index = cname.toLowerCase().indexOf(name.toLowerCase());
+			if(index!=-1){
+				var f = cname.substring(0, index);
+				var t = cname.substring(index, index+name.length);
+				var e = cname.substring(index+name.length);
+				var item = "<li>"+f+"<span class=\"same\">"+t+"</span>"+e+"</li>";
+				console.log(item);
+				$("#items").append(item);
+			}else{
+				$("#items").append("<li>"+cname+"</li>");
+			}
+			
+			
+			var addesses = address.split(/\s+/g);
+			if(addesses.length>0){
+				var item = "<li>";
+				
+				for(var i=0; i<addesses.length; i++){
+					var ads = addesses[i];
+					index = caddress.toLowerCase().indexOf(ads.toLowerCase());
+					if(index!=-1){
+						var f = caddress.substring(0, index);
+						var t = caddress.substring(index, index+ads.length);
+						var e = caddress.substring(index+ads.length);
+						caddress = f+"<span class=\"same\">"+t+"</span>"+e+"&nbsp;&nbsp;";
+					}
+				}
+				
+				item+=caddress;
+				
+				item += "</li>";
+				console.log(item);
+				$("#items").append(item);
+			}else{
+				$("#items").append("<li>"+caddress+"</li>");
+			}
+			
+			index = cphone.toLowerCase().indexOf(number.toLowerCase());
+			if(index!=-1){
+				var f = cphone.substring(0, index);
+				var t = cphone.substring(index, index+number.length);
+				var e = cphone.substring(index+number.length);
+				var item = "<li>"+f+"<span class=\"same\">"+t+"</span>"+e+"</li>";
+				console.log(item);
+				$("#items").append(item);
+			}else{
+				$("#items").append("<li>"+cphone+"</li>");
+			}
+			
+		}else{
+			var $item = $("<li>not found!</li>");
+			$("#items").append($item);
+			
+		}
+		$("#items").show("slow");
+			
+		/*
 			if(datas.length>0){
 				$("#items").hide().html("");
 			}
@@ -91,7 +156,7 @@ $("#searchSubmtBtn").click(function(){
 				
 			}
 			$("#items").show("slow");
-			
+			*/
 		}
 	);
 	
